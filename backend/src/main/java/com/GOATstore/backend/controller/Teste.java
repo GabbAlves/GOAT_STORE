@@ -1,14 +1,17 @@
 package com.GOATstore.backend.controller;
 
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-
-public class Hello {
+public class Teste {
     
-    public String hello(){
-        return "ola BRAZINO BR 777";
+
+    @GetMapping("/")
+    public String heloo(){
+        return "Ola mundo Spring" + new java.util.Date();
     }
 }
