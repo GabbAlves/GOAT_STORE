@@ -12,18 +12,19 @@ import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name = "categoria")
+@Table(name= "marca")
 @Data
-public class Categoria {
+public class Marca {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //gerar chave automaticamente
-    private Long id;    
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String nome;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCriação;
+    private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
+    
 
 }
