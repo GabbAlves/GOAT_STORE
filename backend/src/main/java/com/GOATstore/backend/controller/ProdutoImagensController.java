@@ -1,5 +1,6 @@
 package com.GOATstore.backend.controller;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,38 +13,38 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.GOATstore.backend.entity.Produto;
-import com.GOATstore.backend.service.ProdutoService;
+import com.GOATstore.backend.entity.ProdutoImagens;
+import com.GOATstore.backend.service.ProdutoImagensService;
 
 @RestController
-@RequestMapping("/api/produto")
-public class ProdutoController {
-    
+@RequestMapping("/api/produtoImagens") 
+
+public class ProdutoImagensController {
+
     @Autowired
-    private ProdutoService produtoService;
+    ProdutoImagensService produtoImagensService;
 
     @GetMapping("/")
-    public List<Produto> buscarTodos(){
-     return produtoService.buscarTodos();
+    public List<ProdutoImagens> buscarTodos(){
+        return produtoImagensService.buscarTodos();
     }
-
     @PostMapping("/")
-        public Produto inserir(@RequestBody Produto produto){
-        return produtoService.inserir(produto);
+    public ProdutoImagens inserir(@RequestParam("idProduto") Long idProduto, @RequestParam("file") MultipartFile file){
+        return produtoImagensService.inserir(idProduto, file);
+    }
+    @PutMapping("/")
+    public ProdutoImagens alterar(@RequestBody ProdutoImagens produtoImagens){
+        return produtoImagensService.alterar(produtoImagens);
     }
 
-    @PutMapping("/")
-        public Produto alterar(@RequestBody Produto produto){
-            return produtoService.alterar(produto);
-        }
-    
-
-        @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
         public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
             return ResponseEntity.ok().build();
         }
     
+    
 }
-

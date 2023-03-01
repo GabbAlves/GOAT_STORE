@@ -14,31 +14,21 @@ import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name= "produto")
+@Table(name= "produto_imagens")
 @Data
-public class Produto {
+public class ProdutoImagens {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String descricaoProduto;
-    private String valor;
-    
+    private String nome;
     @ManyToOne
-    @JoinColumn(name= "idMarca")
-    private Marca marca;
-
-    @ManyToOne
-    @JoinColumn(name= "idCategoria")
-    private Categoria categoria;
-
+    @JoinColumn(name="idProduto")
+    private Produto produto;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 
 }
-
-
-
