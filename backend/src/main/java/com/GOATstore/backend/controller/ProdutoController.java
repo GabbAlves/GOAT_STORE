@@ -41,6 +41,7 @@ public class ProdutoController {
 
         @DeleteMapping("/{id}")
         public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
+            produtoService.excluir(id);
             return ResponseEntity.ok().build();
         }
     

@@ -41,6 +41,7 @@ public class ProdutoImagensController {
 
     @DeleteMapping("/{id}")
         public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
+            produtoImagensService.excluir(id);
             return ResponseEntity.ok().build();
         }
     

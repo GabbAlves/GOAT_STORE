@@ -41,6 +41,7 @@ public class CategoriaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
+        categoriaService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

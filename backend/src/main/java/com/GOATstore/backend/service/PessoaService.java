@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.GOATstore.backend.entity.Pessoa;
-import com.GOATstore.backend.repository.PermissaoRepository;
 import com.GOATstore.backend.repository.PessoaRepository;
 
 @Service
