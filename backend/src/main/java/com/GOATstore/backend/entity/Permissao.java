@@ -2,6 +2,8 @@ package com.GOATstore.backend.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,7 @@ public class Permissao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nome;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
