@@ -23,7 +23,8 @@ public class PermissaoPessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //gerar chave automaticamente
     private Long id;    
-
+    private String nome;
+    
     @ManyToOne
     @JoinColumn(name= "idPessoa")
     @JsonIgnore
