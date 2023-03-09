@@ -20,12 +20,16 @@ public class PessoaClienteService{
     @Autowired
     private PermissaoPessoaService permissaoPessoaService;
 
+    @Autowired
+    private EmailService emailService;
+
     public Pessoa inserir(PessoaClienteRequestDTO pessoaClienteRequestDTO){
         Pessoa pessoa = new PessoaClienteRequestDTO().converter(pessoaClienteRequestDTO);  
         
         pessoa.setDataCriacao(new Date());
         Pessoa pessoaNovo = pessoaRepository.saveAndFlush(pessoa);
         permissaoPessoaService.vincularPessoaPermissaoCliente(pessoaNovo);
+        emailService.EnvioDeEmail(pessoaNovo.getEmail(), "cadastro", "Cadastro realizado com sucesso na loja GOAT STORE");
         return pessoaNovo;
     }
 

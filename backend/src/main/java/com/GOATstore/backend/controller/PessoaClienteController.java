@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GOATstore.backend.entity.Pessoa;
-     import com.GOATstore.backend.service.PessoaService;
+import com.GOATstore.backend.service.PessoaClienteService;
+//import com.GOATstore.backend.service.PessoaService;
 
 import dto.PessoaClienteRequestDTO;
 
@@ -24,12 +25,12 @@ import dto.PessoaClienteRequestDTO;
 public class PessoaClienteController {
 
     @Autowired
-    private PessoaService pessoaService;
+    private PessoaClienteService pessoaService;
 
     @PostMapping("/")
     public Pessoa inserir(@RequestBody PessoaClienteRequestDTO pessoaClienteRequestDTO) {
-        Pessoa pessoa = new PessoaClienteRequestDTO().converter(pessoaClienteRequestDTO);
-        return pessoaService.inserir(pessoa);
+       // Pessoa pessoa = new PessoaClienteRequestDTO().converter(pessoaClienteRequestDTO);
+        return pessoaService.inserir(pessoaClienteRequestDTO);
     }
 
 }
