@@ -29,7 +29,7 @@ public class PessoaClienteService{
         pessoa.setDataCriacao(new Date());
         Pessoa pessoaNovo = pessoaRepository.saveAndFlush(pessoa);
         permissaoPessoaService.vincularPessoaPermissaoCliente(pessoaNovo);
-        emailService.EnvioDeEmail(pessoaNovo.getEmail(), "cadastro", "Cadastro realizado com sucesso na loja GOAT STORE");
+        emailService.enviarEmailTexto(pessoaNovo.getEmail(), "cadastro", "Cadastro realizado com sucesso na loja GOAT STORE");
         return pessoaNovo;
     }
 
